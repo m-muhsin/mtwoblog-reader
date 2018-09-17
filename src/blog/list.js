@@ -6,7 +6,7 @@ const List = ({posts, selected, onSelectPost}) =>  (
             <div className="card-body">
                 <div className="list-group">
                     <div className={`list-group-item pointer ${-1 === selected ? `active` : ``}`} onClick={ () => onSelectPost(-1) }>Home</div>
-                    {posts.map(post => <div key={post.id} className={`list-group-item pointer ${post.id === selected ? `active` : ``}`} onClick={ () => onSelectPost(post.id) } dangerouslySetInnerHTML={{ __html: post.title.rendered }} />)}
+                    {posts.map(post => <div key={post.ID} className={`list-group-item pointer ${post.ID === selected ? `active` : ``}`} onClick={ () => onSelectPost(post.ID) } dangerouslySetInnerHTML={{ __html: post.title }} />)}
                 </div>
             </div>
         </div>
