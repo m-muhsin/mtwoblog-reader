@@ -6,16 +6,13 @@ class M2Blog extends React.Component {
     state = { posts: [], selected: -1 }
     fetchPosts = () => {
         this.setState({ loading: true })
-        fetch(`https://public-api.wordpress.com/rest/v1.1/sites/108951602/posts?number=100`)
+        // fetch(`https://public-api.wordpress.com/rest/v1.1/sites/108951602/posts?number=100`)
+        fetch(`http://mtwoblog.com/wp-json/wp/v2/posts?per_page=100`)
         .then(data => data.json())
-        .then(results => this.setState({ posts: results.posts, loading: false }))
+        .then(results => this.setState({ posts: results, loading: false }))
     }
     componentDidMount() {
-        this.startTime = Date.now();
         this.fetchPosts()
-    }
-    componentWillUpdate() {
-        this.endTime = Date.now();
     }
     selectPost = (postId) => {
         this.setState({ selected: postId })
@@ -29,9 +26,6 @@ class M2Blog extends React.Component {
         )
     }
     render() {
-        const myProps = {
-            loadTime: ((this.endTime - this.startTime) / 1000).toFixed(2)
-        }
         return (
             <div>
                 <div className="header">
@@ -45,7 +39,7 @@ class M2Blog extends React.Component {
                             <List posts={this.state.posts} selected={this.state.selected} onSelectPost={this.selectPost} />
                         </div>
                         <div className="col-md-9">
-                            <Post {...myProps} posts={this.state.posts} selected={this.state.selected} />
+                            <Post posts={this.state.posts} selected={this.state.selected} />
                         </div>
                     </div>
                 ) }
