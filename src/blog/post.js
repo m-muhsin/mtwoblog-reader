@@ -16,7 +16,7 @@ class Post extends React.Component {
                         This is a project I created to make it easier for my readers to go
                         through the content on{" "}
                         <a target="_blank" rel="noopener noreferrer" href="http://mtwoblog.com">mtwoblog.com</a> from a single screen.
-                        Click on any of the blog post titles on the left to see it load in
+                        Click on any of the blog post titles on the left to see it load instantly in
                         this space.
                     </p>
                     <p>Thank you for taking the time to check this out!</p>

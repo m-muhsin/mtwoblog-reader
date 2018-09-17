@@ -35,7 +35,7 @@ body {
   }
 }
 
-img {
+img, figure {
   max-width: 100%;
 }
 
